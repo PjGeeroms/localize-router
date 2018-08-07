@@ -2,7 +2,6 @@ import { Inject } from '@angular/core';
 import { Router, NavigationStart, ActivatedRouteSnapshot, NavigationExtras, UrlSegment } from '@angular/router';
 import { Subject } from 'rxjs';
 import { pairwise, filter } from 'rxjs/operators';
-
 import { LocalizeParser } from './localize-router.parser';
 import { LocalizeRouterSettings } from './localize-router.config';
 
@@ -33,7 +32,7 @@ export class LocalizeRouterService {
       filter(event => event instanceof NavigationStart),
       pairwise()
     )
-      .subscribe(this._routeChanged());
+    .subscribe(this._routeChanged());
   }
 
   /**

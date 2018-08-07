@@ -6,6 +6,11 @@
 
 Based on and extension of [ngx-translate](https://github.com/ngx-translate/core).
 Demo project can be found [here](https://github.com/meeroslav/localize-router-example) or under sub folder `demo/cli`.
+This is a forked version of localize-router, located [here](https://github.com/Greentube/localize-router).
+I forked the project because it wouldn't work with Angular 6 without a few node changes and some minor code tweaks. All the unit tests pass, 
+but I have yet to use this in my code now, as I found it not very useful for my purposes after looking over the code.  Anyway, since I put in the work, 
+maybe someone can benefit.  ;)  I kept the original instructions as I didn't change functionality.  Give me some feedback if you find this useful or find bugs, 
+and don't forget to thank the original developer!
 
 > This documentation is for version 1.x.x which requires Angular 4+. If you are migrating from the older version follow [migration guide](https://github.com/Greentube/localize-router/blob/master/MIGRATION_GUIDE.md) to upgrade to latest version.
 
@@ -30,7 +35,7 @@ Demo project can be found [here](https://github.com/meeroslav/localize-router-ex
     - [LocalizeParser](#localizeparser)
 - [License](#license)
 
-## Installation
+## Installation (for old non-Angular6 version - I haven't put this into NPM yet)
 
 ```
 npm install --save localize-router

@@ -3,13 +3,14 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, Observer } from 'rxjs';
 import { Location } from '@angular/common';
 import { CacheMechanism, LocalizeRouterSettings } from './localize-router.config';
-import { Inject } from '@angular/core';
+import { Injectable } from '../node_modules/@angular/core';
 
 const COOKIE_EXPIRY = 30; // 1 month
 
 /**
  * Abstract class for parsing localization
  */
+@Injectable()
 export abstract class LocalizeParser {
   locales: Array<string>;
   currentLang: string;
@@ -28,9 +29,9 @@ export abstract class LocalizeParser {
    * @param location
    * @param settings
    */
-  constructor(@Inject(TranslateService) private translate: TranslateService,
-              @Inject(Location) private location: Location,
-              @Inject(LocalizeRouterSettings) private settings: LocalizeRouterSettings) {
+  constructor(private translate: TranslateService,
+              private location: Location,
+              private settings: LocalizeRouterSettings) {
   }
 
   /**
@@ -376,14 +377,6 @@ export class ManualParserLoader extends LocalizeParser {
    * @param routes
    * @returns {Promise<any>}
    */
-  load(routes: Routes): Promise<any> {
-    return new Promise((resolve: any) => {
-      this.init(routes).then(resolve);
-    });
-  }
-}
-
-export class DummyLocalizeParser extends LocalizeParser {
   load(routes: Routes): Promise<any> {
     return new Promise((resolve: any) => {
       this.init(routes).then(resolve);
